@@ -1,0 +1,25 @@
+﻿@model ComplexApp.Models.Sets
+
+@{
+    ViewBag.Title = "Sets";
+}
+
+<h2>Sets</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <ul class="list-group">
+
+            @foreach (var item in Model.Elements)
+            {
+                <li class="list-group-item">
+                    <h4>@Html.DisplayFor(modelItem => item)</h4>
+                    <a asp-action="Edit"><i class="material-icons">remove_circle_outline</i></a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
