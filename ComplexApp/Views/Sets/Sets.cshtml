@@ -11,7 +11,7 @@
     <div class="col-md-6">
         <ul class="list-group">
 
-            @foreach (var item in Model.Elements)
+            @foreach (var item in (HashSet<string>)System.Web.HttpContext.Current.Session["Sets"])
             {
                 <li class="list-group-item">
                     <h4>@Html.DisplayFor(modelItem => item)</h4>
@@ -19,6 +19,8 @@
                 </li>
             }
         </ul>
+
+        <h1> @HttpUtility.HtmlEncode((int)System.Web.HttpContext.Current.Session["HashCode"])  </h1>
     </div>
 </div>
 
