@@ -1,20 +1,26 @@
 ﻿using ComplexApp.Models;
-using System.Collections.Generic;
+using ComplexApp.Services;
 using System.Web.Mvc;
 
 namespace ComplexApp.Controllers
 {
     public class SetsController : Controller
     {
-
         public ActionResult Sets()
         {
-            Sets aSet = new Sets();
-            System.Web.HttpContext.Current.Session["HashCode"] = aSet.Id;
-            System.Web.HttpContext.Current.Session["Sets"] = aSet.Elements;
+            var globalSet = (Sets)System.Web.HttpContext.Current.Session["Sets"];
+
+            System.Web.HttpContext.Current.Session["Sets"] = globalSet != null ? System.Web.HttpContext.Current.Session["Sets"] : new Sets();
+
             return View();
         }
 
-
+        public ActionResult addNewElement(string newElement)
+        {
+            var setsService = new SetsService();
+            setsService.addElement(newElement);
+            
+            return View("Sets");
+        }
     }
 }
