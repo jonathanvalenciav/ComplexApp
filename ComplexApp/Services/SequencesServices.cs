@@ -12,18 +12,18 @@ namespace ComplexApp.Services
         Sequences globalSequenceReverse = (Sequences)System.Web.HttpContext.Current.Session["SequencesReverse"];
         public void addElementToSequence(double element)
         {
-            globalSequence.Element.Add(element);
-            globalSequence.Element.Sort();
-            globalSequenceReverse.ElementReverse.Add(element);
-            globalSequenceReverse.ElementReverse.Sort();
-            globalSequenceReverse.ElementReverse.Reverse();
+            globalSequence.Elements.Add(element);
+            globalSequence.Elements.Sort();
+            globalSequenceReverse.ElementsReverse.Add(element);
+            globalSequenceReverse.ElementsReverse.Sort();
+            globalSequenceReverse.ElementsReverse.Reverse();
         }
 
         public void removeElementFromSequence(int index)
         {
-            globalSequence.Element.RemoveAt(index);
-            int size = globalSequence.Element.Count();
-            globalSequenceReverse.ElementReverse.RemoveAt(size - index - 1);
+            globalSequence.Elements.RemoveAt(index);
+            int size = globalSequence.Elements.Count();
+            globalSequenceReverse.ElementsReverse.RemoveAt(size - index);
         }
 
     }

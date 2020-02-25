@@ -10,14 +10,14 @@ namespace ComplexApp.Models
 
         public Sequences()
         {
-            this.Element = new List<double>();
-            this.ElementReverse = new List<double>();
+            this.Elements = new List<double>();
+            this.ElementsReverse= new List<double>();
 
         }       
 
         public int Id { get; set; }
-        public List<double> Element { get; set; }
-        public List<double> ElementReverse { get; set; }
+        public List<double> Elements { get; set; }
+        public List<double> ElementsReverse { get; set; }
 
     }
 }

@@ -36,6 +36,12 @@ namespace ComplexApp.Controllers
             return View("Sequences");
         }
 
+        public ActionResult removeElement(int index)
+        {
+            var sequencesServices = new SequencesServices();
+            sequencesServices.removeElementFromSequence(index);
 
+            return View("Sequences");
+        }
     }
 }
