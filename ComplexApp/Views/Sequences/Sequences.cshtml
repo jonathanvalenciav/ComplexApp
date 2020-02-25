@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Sequences";
+    ComplexApp.Models.Sequences globalSequence = (ComplexApp.Models.Sequences)System.Web.HttpContext.Current.Session["Sequences"];
+    ComplexApp.Models.Sequences globalSequenceReverse = (ComplexApp.Models.Sequences)System.Web.HttpContext.Current.Session["SequencesReverse"];
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2><i class="material-icons" style="border-radius: 50%; padding: 10px; background-color: #ebebeb; font-size:40px;color: #000000; margin-right:0.2em">storage</i> Sequences</h2>
+    </div>
+</div>
+<hr />
+
+
+<div class="row">
+    <div class="col-md-5 align-self-center">
+        @using (Html.BeginForm("addNewElementToSequence", "Sequences"))
+        {
+            <form class="form-inline">
+                <div class="form-group">
+                    <h3> Insert a real number</h3>
+                    <label for="newElement" class="sr-only">Add a real number</label>
+                    <input type="number" class="form-control" name="newElement" id="newElement" placeholder="Add a real number">
+                </div>
+                <button type="submit" style="padding: 1%" class="btn btn-primary"><i class="material-icons" style="font-size: 30px; color: #ffffff;">add_circle_outline</i></button>
+            </form>
+        }
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <ul class="list-group">
+
+            @foreach (var item in globalSequence.Element)
+            {
+                <li class="list-group-item">
+                    <h4>@Html.DisplayFor(modelItem => item)</h4>
+                </li>
+            }
+        </ul>
+        <ul class="list-group">
+
+            @foreach (var item in globalSequenceReverse.ElementReverse)
+            {
+                <li class="list-group-item">
+                    <h4>@Html.DisplayFor(modelItem => item)</h4>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
