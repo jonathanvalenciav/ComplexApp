@@ -10,7 +10,7 @@ namespace ComplexApp.Models
         }
 
         public int Id { get; set; }
-        public HashSet<string> Elements{ get; set; }
+        public HashSet<string> Elements { get; set; }
 
     }
 }
