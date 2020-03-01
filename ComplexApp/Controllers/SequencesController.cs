@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using ComplexApp.Models;
+﻿using ComplexApp.Models;
 using ComplexApp.Services;
+using System.Web.Mvc;
 
 namespace ComplexApp.Controllers
 {
@@ -28,10 +24,16 @@ namespace ComplexApp.Controllers
             return View();
         }
 
-        public ActionResult addNewElementToSequence(double newElement)
+        public ActionResult addNewElementToSequence(string newElement)
         {
             var sequencesServices = new SequencesServices();
-            sequencesServices.addElementToSequence(newElement);
+            if (sequencesServices.validateInput(newElement))
+            {
+                sequencesServices.addElementToSequence(newElement);
+            } else
+            {
+                System.Console.WriteLine("Dato inválido.");
+            }
 
             return View("Sequences");
         }

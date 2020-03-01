@@ -19,7 +19,14 @@ namespace ComplexApp.Controllers
         {
             var setsService = new SetsService();
             setsService.addElement(newElement);
-            
+            return View("Sets");
+        }
+
+        public ActionResult removeElement(string element)
+        {
+            var setsServices = new SetsService();
+            setsServices.removeElementFromSet(element);
+
             return View("Sets");
         }
     }

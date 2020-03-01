@@ -120,13 +120,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\RPSController.cs" />
+    <Compile Include="Controllers\SequencesController.cs" />
     <Compile Include="Controllers\SetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Sequences.cs" />
     <Compile Include="Models\Sets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SequencesServices.cs" />
     <Compile Include="Services\SetsService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +168,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Sets\Sets.cshtml" />
+    <Content Include="Views\Sequences\Sequences.cshtml" />
+    <Content Include="Views\RPS\RPS.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

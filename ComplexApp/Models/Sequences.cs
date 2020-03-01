@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace ComplexApp.Models
 {
@@ -10,14 +8,15 @@ namespace ComplexApp.Models
 
         public Sequences()
         {
-            this.Elements = new List<double>();
-            this.ElementsReverse= new List<double>();
+            
+            this.Elements = new List<string>();
+            this.ElementsReverse = new List<string>();
 
-        }       
+        }
 
         public int Id { get; set; }
-        public List<double> Elements { get; set; }
-        public List<double> ElementsReverse { get; set; }
+        public List<string> Elements { get; set; }
+        public List<string> ElementsReverse { get; set; }
 
     }
 }

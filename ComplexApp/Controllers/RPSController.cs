@@ -2,9 +2,10 @@
 
 namespace ComplexApp.Controllers
 {
-    public class HomeController : Controller
+    public class RPSController : Controller
     {
-        public ActionResult Index()
+        // GET: RPS
+        public ActionResult RPS()
         {
             return View();
         }

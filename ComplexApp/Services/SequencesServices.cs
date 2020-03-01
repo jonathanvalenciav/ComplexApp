@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ComplexApp.Models;
 using System.Linq;
-using System.Web;
-using ComplexApp.Models;
+using System.Text.RegularExpressions;
 
 namespace ComplexApp.Services
 {
@@ -10,7 +8,15 @@ namespace ComplexApp.Services
     {
         Sequences globalSequence = (Sequences)System.Web.HttpContext.Current.Session["Sequences"];
         Sequences globalSequenceReverse = (Sequences)System.Web.HttpContext.Current.Session["SequencesReverse"];
-        public void addElementToSequence(double element)
+
+        public bool validateInput(string inputData)
+        {
+            string pattern = @"^((\-?[0-9]+)(\.?[0-9]+)?)\^?((\-?[0-9]+)(\.?[0-9]+)?)$";
+            bool result = Regex.IsMatch(inputData, pattern);
+            return result;
+        }
+
+        public void addElementToSequence(string element)
         {
             globalSequence.Elements.Add(element);
             globalSequence.Elements.Sort();
