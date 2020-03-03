@@ -27,12 +27,9 @@ namespace ComplexApp.Controllers
         public ActionResult addNewElementToSequence(string newElement)
         {
             var sequencesServices = new SequencesServices();
-            if (sequencesServices.validateInput(newElement))
-            {
-                sequencesServices.addElementToSequence(newElement);
-            } else
-            {
-                System.Console.WriteLine("Dato inválido.");
+
+            if (sequencesServices.validateInput(newElement)) {
+                sequencesServices.addElementToSequence(sequencesServices.getValueFromInput(newElement));
             }
 
             return View("Sequences");

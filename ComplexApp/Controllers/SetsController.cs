@@ -17,8 +17,13 @@ namespace ComplexApp.Controllers
 
         public ActionResult addNewElement(string newElement)
         {
+            char delimiter = ',';
+            string[] elements = newElement.Split(delimiter);
             var setsService = new SetsService();
-            setsService.addElement(newElement);
+            foreach(var element in elements) {
+                setsService.addElement(element);
+            }
+            
             return View("Sets");
         }
 

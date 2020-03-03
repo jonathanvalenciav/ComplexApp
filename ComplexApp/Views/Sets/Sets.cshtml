@@ -3,30 +3,28 @@
     ComplexApp.Models.Sets globalSet = (ComplexApp.Models.Sets)System.Web.HttpContext.Current.Session["Sets"];
 }
 
-    <div class="row">
-        <div class="col-md-3">
-            <h2><i class="material-icons" style="border-radius: 50%; padding: 10px; background-color: #ebebeb; font-size:40px;color: #000000; margin-right:0.2em">storage</i> Sets</h2>
-        </div>
-        <div class="col-md-9">
-            <h3 class="row"> INFO</h3>
-            <h5 class="row"> If the element you want to add is already in the set, it won't be added again.</h5>
-        </div>
+<div class="row">
+    <div class="col-md-3">
+        <h2><i class="material-icons" style="border-radius: 50%; padding: 10px; background-color: #ebebeb; font-size:40px;color: #000000; margin-right:0.2em">storage</i> Sets</h2>
     </div>
+</div>
 
 <hr />
 
 <div class="row">
+    <div class="alert alert-success" role="alert">
+        <p><strong>Hi dear User!</strong> If the element you want to add is already in the set, it won't be added again.</p>
+        <p>Besides if you want to add multiple elements use the character comma (,) to separate each of them.</p>
+    </div>
+
     <div class="col-md-5 align-self-center">
-        @using (Html.BeginForm("addNewElement", "Sets"))
+        @using (Html.BeginForm("addNewElement", "Sets", FormMethod.Post, new { @class = "form-inline" }))
         {
-            <form class="form-inline">
-                <div class="form-group">
-                    <h3> Insert your element value</h3>
-                    <label for="newElement" class="sr-only">Add an element</label>
-                    <input type="text" class="form-control" name="newElement" id="newElement" placeholder="Add an element">
-                </div>
-                <button type="submit" style="padding: 1%" class="btn btn-primary"><i class="material-icons" style="font-size: 30px; color: #ffffff;">add_circle_outline</i></button>
-            </form>
+            <div class="form-group">
+                <label for="newElement" class="sr-only">Add an element</label>
+                <input type="text" class="form-control" name="newElement" id="newElement" placeholder="Add an element">
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
         }
     </div>
 </div>
@@ -40,7 +38,7 @@
             {
                 <li class="list-group-item">
                     <h4>@Html.DisplayFor(modelItem => item) <input type="button" class="btn btn-danger  btn-sm" style="float:right" value="Remove" onclick="location.href='@Url.Action("removeElement", "Sets", new { element = item, item })})'"</h4>
-                     
+
                 </li>
             }
         </ul>
