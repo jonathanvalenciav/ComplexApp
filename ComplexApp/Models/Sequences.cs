@@ -9,7 +9,6 @@ namespace ComplexApp.Models
         {
             this.Elements = new List<double>();
             this.ElementsReverse = new List<double>();
-
         }
 
         public int Id { get; set; }

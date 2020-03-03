@@ -24,10 +24,13 @@ namespace ComplexApp.Controllers
             return View();
         }
 
-        public ActionResult addNewElementToSequence(double newElement)
+        public ActionResult addNewElementToSequence(string newElement)
         {
             var sequencesServices = new SequencesServices();
-            sequencesServices.addElementToSequence(newElement);
+
+            if (sequencesServices.validateInput(newElement)) {
+                sequencesServices.addElementToSequence(sequencesServices.getValueFromInput(newElement));
+            }
 
             return View("Sequences");
         }
