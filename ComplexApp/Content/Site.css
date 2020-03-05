@@ -22,3 +22,25 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.oponent-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.player-options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.random-image {
+    width: 200px;
+    height: 200px;
+    transition: all .2s ease-in-out;
+}
+
+.selectable-image:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}

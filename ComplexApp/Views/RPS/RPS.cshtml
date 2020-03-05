@@ -1,27 +1,66 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "RPS";
 }
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2><i class="fa fa-hand-scissors-o" style="border-radius: 50%; padding: 10px; background-color:#ebebeb; font-size:40px;color: #000000; margin-right:0.2em"></i> Rock-Paper-Scissors</h2>
-        </div>
-    </div>
 
-
-
-<hr />
-
-<div class="row center-block">
-    <div class="col-lg-12">
-        <img src="~/Images/PIEDRA.png" class="btn btn-default" style="padding:5px; margin-left:20%; text-align:left" alt="ROCK">
-        <img src="~/Images/PAPEL.png" class="btn btn-default" style="padding:5px; text-align:center" alt="PAPER">
-        <img src="~/Images/TIJERAS.png" class="btn btn-default" style="padding:5px; text-align:right" alt="SCISSORS">
-
+<div class="row">
+    <div class="col-md-4">
+        <h2><i class="fa fa-hand-scissors-o" style="border-radius: 50%; padding: 10px; background-color:#ebebeb; font-size:40px;color: #000000; margin-right:0.2em"></i> Rock-Paper-Scissors</h2>
     </div>
 </div>
 
+<hr />
+
+<body>
+    <div style="display: flex; justify-content: center; margin-bottom: 20px">
+        <img src="/Images/PIEDRA.png" id="randomImage">
+    </div>
+
+    <hr />
+
+    <div class="player-options">
+        <img id="rockImage" src="~/Images/PIEDRA.png" class="image selectable-image" />
+        <img id="paperImage" src="~/Images/PAPEL.png" class="image selectable-image" />
+        <img id="scissorsImage" src="~/Images/TIJERAS.png" class="image selectable-image" />
+    </div>
+
+    <hr />
+
+    <button id="onceAgain" class="btn btn-info">Once again?!</button>
+</body>
+
+
+
+
+<script type="text/javascript">
+
+    var myInterval= window.setInterval(setImage, 100);
+
+
+    function setImage() {
+        i = (i === imageArray.length - 1) ? 0 : i + 1;
+        document.getElementById("randomImage").src = imageArray[i];
+    }
+
+    function stopImage() {
+        clearInterval(myInterval);
+    }
+
+    function restart() {
+        myInterval= window.setInterval(setImage, 100);
+    }
+
+    document.getElementById("rockImage").addEventListener("click", stopImage);
+    document.getElementById("paperImage").addEventListener("click", stopImage);
+    document.getElementById("scissorsImage").addEventListener("click", stopImage);
+    document.getElementById("onceAgain").addEventListener("click", restart);
+
+    var imageArray = [], i = -1;
+    imageArray[0] = "/Images/PIEDRA.png";
+    imageArray[1] = "/Images/PAPEL.png";
+    imageArray[2] = "/Images/TIJERAS.png";
+
+</script>
 
 
 
