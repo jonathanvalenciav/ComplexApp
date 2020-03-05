@@ -12,8 +12,9 @@
 <hr />
 
 <div class="row">
-    <div class="alert alert-warning" role="alert">
-        <strong>Hi dear User!</strong> If the element you want to add is already in set, it won't be added again.
+    <div class="alert alert-success" role="alert">
+        <p><strong>Hi dear User!</strong> If the element you want to add is already in the set, it won't be added again.</p>
+        <p>Besides if you want to add multiple elements use the character comma (,) to separate each of them.</p>
     </div>
 
     <div class="col-md-5 align-self-center">
@@ -21,7 +22,7 @@
         {
             <div class="form-group">
                 <label for="newElement" class="sr-only">Add an element</label>
-                <input type="text" class="form-control" name="newElement" id="newElement" placeholder="Add an element">
+                <input type="text" style="width: 600px" class="form-control" name="newElement" id="newElement" placeholder="Add an element or multiples elements">
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
         }
