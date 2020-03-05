@@ -10,10 +10,12 @@
 </div>
 
 <hr />
-
+<head>
+    <link rel="stylesheet" href="~/Content/Site.css">
+</head>
 <body>
     <div style="display: flex; justify-content: center; margin-bottom: 20px">
-        <img src="/Images/PIEDRA.png" id="randomImage">
+        <img src="/Images/PIEDRA.png" id="randomImage" style="width:200px; height:200px">
     </div>
 
     <hr />
@@ -34,9 +36,9 @@
 
 <script type="text/javascript">
 
-    var myInterval= window.setInterval(setImage, 100);
-
-
+    var myInterval = window.setInterval(setImage, 100);
+    var otrasVez = 1;
+   
     function setImage() {
         i = (i === imageArray.length - 1) ? 0 : i + 1;
         document.getElementById("randomImage").src = imageArray[i];
@@ -44,10 +46,15 @@
 
     function stopImage() {
         clearInterval(myInterval);
+        otrasVez = 0;
     }
 
     function restart() {
-        myInterval= window.setInterval(setImage, 100);
+        if (otrasVez == 0) {
+            myInterval = window.setInterval(setImage, 100);
+            otrasVez = 1;
+        }
+        else { otrasVez=otrasVez }
     }
 
     document.getElementById("rockImage").addEventListener("click", stopImage);
