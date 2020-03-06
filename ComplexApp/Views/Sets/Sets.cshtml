@@ -15,9 +15,10 @@
     <div class="alert alert-success" role="alert">
         <p><strong>Hi dear User!</strong> If the element you want to add is already in the set, it won't be added again.</p>
         <p>Besides if you want to add multiple elements use the character comma (,) to separate each of them.</p>
+        <p>The symbol: <strong>∅</strong> represents the empty element. This one will be added when you enter only blank spaces.</p>
     </div>
 
-    <div class="col-md-5 align-self-center">
+    <div class="col-md-5 align-self-center"> 
         @using (Html.BeginForm("addNewElement", "Sets", FormMethod.Post, new { @class = "form-inline" }))
         {
             <div class="form-group">

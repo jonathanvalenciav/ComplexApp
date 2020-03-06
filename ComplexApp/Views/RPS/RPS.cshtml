@@ -15,7 +15,7 @@
 </head>
 <body>
     <div style="display: flex; justify-content: center; margin-bottom: 20px">
-        <img src="/Images/PIEDRA.png" id="randomImage" style="width:200px; height:200px">
+        <img id="randomImage" style="width:200px; height:200px">
     </div>
 
     <hr />
@@ -31,41 +31,92 @@
     <button id="onceAgain" class="btn btn-info">Once again?!</button>
 </body>
 
-
-
-
 <script type="text/javascript">
 
     var myInterval = window.setInterval(setImage, 100);
-    var otrasVez = 1;
-   
+    var otraVez = 1;
+    var imageComputer;
+    var value;
+    
+    const PIEDRA = "Piedra";
+    const PAPEL = "Papel";
+    const TIJERA = "Tijera";
+
     function setImage() {
         i = (i === imageArray.length - 1) ? 0 : i + 1;
-        document.getElementById("randomImage").src = imageArray[i];
+        document.getElementById("randomImage").setAttribute("src", imageArray[i]);
+        document.getElementById("randomImage").setAttribute("name", nameImage[i]);
     }
 
     function stopImage() {
         clearInterval(myInterval);
-        otrasVez = 0;
+        otraVez = 0;
     }
 
     function restart() {
-        if (otrasVez == 0) {
+        if (otraVez == 0) {
             myInterval = window.setInterval(setImage, 100);
-            otrasVez = 1;
+            otraVez = 1;
         }
-        else { otrasVez=otrasVez }
+        else { otraVez=otraVez }
     }
 
-    document.getElementById("rockImage").addEventListener("click", stopImage);
-    document.getElementById("paperImage").addEventListener("click", stopImage);
-    document.getElementById("scissorsImage").addEventListener("click", stopImage);
+    document.getElementById("rockImage").addEventListener("click", resultRock);
+    document.getElementById("paperImage").addEventListener("click", resultPaper);
+    document.getElementById("scissorsImage").addEventListener("click", resultScissors);
     document.getElementById("onceAgain").addEventListener("click", restart);
 
     var imageArray = [], i = -1;
     imageArray[0] = "/Images/PIEDRA.png";
     imageArray[1] = "/Images/PAPEL.png";
     imageArray[2] = "/Images/TIJERAS.png";
+
+    var nameImage = [], i = -1;
+    nameImage[0] = PIEDRA;
+    nameImage[1] = PAPEL;
+    nameImage[2] = TIJERA;
+
+    function resultRock() {
+        stopImage();
+        opcionComputador = document.getElementById("randomImage").name;
+        if (opcionComputador === PAPEL) {
+            alert('You lose');
+        }
+        else if (opcionComputador === PIEDRA) {
+            alert('Draw');
+        }
+        else {
+            alert('You win');
+        }
+    }
+
+    function resultPaper() {
+        stopImage();
+        opcionComputador = document.getElementById("randomImage").name;
+        if (opcionComputador === TIJERA) {
+            alert('You lose');
+        }
+        else if (opcionComputador === PAPEL) {
+            alert('Draw');
+        }
+        else {
+            alert('You win');
+        }
+    }
+
+    function resultScissors() {
+        stopImage();
+        opcionComputador = document.getElementById("randomImage").name;
+        if (opcionComputador === PIEDRA) {
+            alert('You lose');
+        }
+        else if (opcionComputador === TIJERA) {
+            alert('Draw');
+        }
+        else {
+            alert('You win');
+        }
+    }
 
 </script>
 
